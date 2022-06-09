@@ -13,13 +13,7 @@ namespace Lab1_LINQ
         public string LastName { get; set; }    
         public string Patronymic { get; set; }
         public string Group { get; set; }
-        public DateTime BirthDate { 
-            get { return BirthDate; }
-            set
-            {
-                BirthDate = value.Date;
-            }
-        }
+        public DateTime BirthDate { get; set; }
 
 
         public Dictionary<Subject, int> Scores = new Dictionary<Subject, int>();

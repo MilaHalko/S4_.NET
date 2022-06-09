@@ -1,0 +1,8 @@
+C:\Users\Milka\Documents\Progs\C4_.NET\Lab1_LINQ\Lab1_LINQ\bin\Debug\Lab1_LINQ.exe.config
+C:\Users\Milka\Documents\Progs\C4_.NET\Lab1_LINQ\Lab1_LINQ\bin\Debug\Lab1_LINQ.exe
+C:\Users\Milka\Documents\Progs\C4_.NET\Lab1_LINQ\Lab1_LINQ\bin\Debug\Lab1_LINQ.pdb
+C:\Users\Milka\Documents\Progs\C4_.NET\Lab1_LINQ\Lab1_LINQ\obj\Debug\Lab1_LINQ.csproj.AssemblyReference.cache
+C:\Users\Milka\Documents\Progs\C4_.NET\Lab1_LINQ\Lab1_LINQ\obj\Debug\Lab1_LINQ.csproj.SuggestedBindingRedirects.cache
+C:\Users\Milka\Documents\Progs\C4_.NET\Lab1_LINQ\Lab1_LINQ\obj\Debug\Lab1_LINQ.csproj.CoreCompileInputs.cache
+C:\Users\Milka\Documents\Progs\C4_.NET\Lab1_LINQ\Lab1_LINQ\obj\Debug\Lab1_LINQ.exe
+C:\Users\Milka\Documents\Progs\C4_.NET\Lab1_LINQ\Lab1_LINQ\obj\Debug\Lab1_LINQ.pdb
