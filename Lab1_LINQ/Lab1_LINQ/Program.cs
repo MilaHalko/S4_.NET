@@ -18,10 +18,10 @@ namespace Lab1_LINQ
             Student st2 = new Student { Id = 2, FirstName = "Ekaterina", LastName = "Barinova", Patronymic = "Victorovna", Group = "IP-02", BirthDate = new DateTime(2001, 8, 14)};
             Student st3 = new Student { Id = 3, FirstName = "Anastasia", LastName = "Kuzma", Patronymic = "Stepanovna", Group = "IP-03", BirthDate = new DateTime(1999, 4, 23)};
             Student st4 = new Student { Id = 4, FirstName = "Larisa", LastName = "Diachenko", Patronymic = "Volodymirovna", Group = "IP-04", BirthDate = new DateTime(2000, 10, 11)};
-            Student st5 = new Student { Id = 5, FirstName = "Elena", LastName = "Malianytsa", Patronymic = "Vyloriivna", Group = "IT-01", BirthDate = new DateTime(2001, 2, 11)};
-            Student st6 = new Student { Id = 6, FirstName = "Aleksandr", LastName = "Marchenko", Patronymic = "Aleksandrovych", Group = "IT--02", BirthDate = new DateTime(2002, 3, 15)};
+            Student st5 = new Student { Id = 5, FirstName = "Elena", LastName = "Kuzma", Patronymic = "Vyloriivna", Group = "IT-01", BirthDate = new DateTime(2001, 2, 11)};
+            Student st6 = new Student { Id = 6, FirstName = "Aleksandr", LastName = "Marchenko", Patronymic = "Aleksandrovych", Group = "IT-02", BirthDate = new DateTime(2002, 3, 15)};
 
-            List<Student> allStudents = new List<Student> { st1, st2, st3, st4, st5, st6 };
+            List<Student> students = new List<Student> { st1, st2, st3, st4, st5, st6 };
 
             // Supervisors
 
@@ -29,9 +29,9 @@ namespace Lab1_LINQ
             List<Student> students2 = new List<Student> { st4};
             List<Student> students3 = new List<Student> { st5, st6};
 
-            Supervisor sup1 = new Supervisor { FirstName = "Victor", LastName = "Barinov", Patronymic = "Petrovich", Post = "professor", Students = students1};
-            Supervisor sup2 = new Supervisor { FirstName = "Victoria", LastName = "Honcharova", Patronymic = "Yevhenevna", Post = "lecturer", Students = students2};
-            Supervisor sup3 = new Supervisor { FirstName = "Robert", LastName = "Dawny", Patronymic = "Second", Post = "philanthropist", Students = students3};
+            Supervisor sup1 = new Supervisor { ID = 1, FirstName = "Victor", LastName = "Barinov", Patronymic = "Petrovich", Post = "professor", Students = students1};
+            Supervisor sup2 = new Supervisor { ID = 2, FirstName = "Victoria", LastName = "Honcharova", Patronymic = "Yevhenevna", Post = "lecturer", Students = students2};
+            Supervisor sup3 = new Supervisor { ID = 3, FirstName = "Robert", LastName = "Dawny", Patronymic = "Second", Post = "philanthropist", Students = students3};
 
             List<Supervisor> allSupervisors = new List<Supervisor> { sup1, sup2, sup3 };
 
@@ -48,20 +48,30 @@ namespace Lab1_LINQ
             List<Subject> allSubjects = new List<Subject> { sub1, sub2, sub3 };
 
 
-            // Set Subjects' Scores for Students
+            // Set Subjects' Scores & SupervisorIDs for Students
 
             st1.Scores[sub1] = 95;
             st1.Scores[sub3] = 73;
+            st1.SupervisorID = 1;
+
             st2.Scores[sub2] = 85;
             st2.Scores[sub3] = 86;
-            st3.Scores[sub1] = 90;
+            st2.SupervisorID = 1;
+
+            st3.Scores[sub1] = 95;
             st3.Scores[sub3] = 76;
+            st3.SupervisorID = 1;
+
             st4.Scores[sub1] = 89;
             st4.Scores[sub3] = 63;
+            st4.SupervisorID = 2;
+
             st5.Scores[sub2] = 87;
+            st5.SupervisorID = 3;
+
             st6.Scores[sub1] = 99;
             st6.Scores[sub3] = 98;
-
+            st6.SupervisorID = 3;
 
             // 1. Simple select:
             Console.WriteLine("1) Supervisor_1's Students: ");
@@ -93,8 +103,8 @@ namespace Lab1_LINQ
 
 
             // 4. Conditions:
-            Console.WriteLine("6) Top Students (Avarage score + 90): ");
-            var topStudents = from s in allStudents
+            Console.WriteLine("6) Top Students (Average score + 90): ");
+            var topStudents = from s in students
                               where s.AverageScore > 90
                               select ( s.FirstName, s.LastName, s.AverageScore );
             PrintLINQ(topStudents);
@@ -108,86 +118,175 @@ namespace Lab1_LINQ
             PrintLINQ(st6_sortedSubjects);
 
 
-            // 6. Hard Sorting + Count()
-            Console.WriteLine("8) Sorted Students & Subjects' quantity: ");
-            var sortedSupsStuds = from st in allStudents
+            // 6. Order + Then
+            Console.WriteLine("8) Students's list by year of BD & Lastname: ");
+            var stsByYearLastname = students.OrderBy(s => s.BirthDate.Year).ThenBy(s => s.LastName);
+            foreach (var st in stsByYearLastname)
+            {
+                Console.WriteLine("{0} - {1} {2}", st.BirthDate.Year, st.LastName, st.FirstName);
+            }
+            Console.WriteLine();
+
+
+            // 7. Hard Sorting + Count()
+            Console.WriteLine("9) Sorted Students & Subjects' quantity: ");
+            var sortedSupsStuds = from st in students
                                   orderby st.LastName
                                   orderby st.Scores.Count()
                                   select ( st.LastName, st.Scores.Count());
             PrintLINQ(sortedSupsStuds);
 
 
-            // 7. Skip & Take
-            Console.WriteLine("9) Skip Average < 60 and take Average < 90: ");
-            var students_skipTake = allStudents.SkipWhile(s => s.AverageScore < 60)
+            // 8. Skip & Take
+            Console.WriteLine("10) Skip Average < 60 and take Average < 90: ");
+            var students_skipTake = students.SkipWhile(s => s.AverageScore < 60)
                                                .TakeWhile(s => s.AverageScore < 90)
                                                .OrderBy(s => s.AverageScore)
                                                .Select(s => (s.LastName, s.AverageScore));
             PrintLINQ(students_skipTake);
 
 
-            // 8. Min & Max
-            Console.WriteLine("10) Students with their lowest score: ");
-            var lowestScore = from s in allStudents
+            // 9. Min & Max
+            Console.WriteLine("11) Students with their lowest score: ");
+            var lowestScore = from s in students
                               orderby s.Scores.Values.Min()
                               select (s.LastName, s.Scores.Values.Min());
             PrintLINQ(lowestScore);
 
-            Console.WriteLine("11) Students with their highest score: ");
-            var highestScore = from s in allStudents
+            Console.WriteLine("12) Students with their highest score: ");
+            var highestScore = from s in students
                               select (s.LastName, s.Scores.Values.Max());
             PrintLINQ(highestScore);
 
 
-            // Group by
-            
+            // 10. StartWith + ToUpper
+            Console.WriteLine("13) IP Students: ");
+            var IPstudents = from st in students
+                             where st.Group.ToUpper().StartsWith("IP")
+                             orderby st.Group
+                             select st.LastName + " " + st.FirstName + ", group: " + st.Group;
+            PrintLINQ(IPstudents);
+
+            Console.WriteLine("14) IT Students: ");
+            var ITstudents = students.Where(s => s.Group.ToUpper().StartsWith("IT")).OrderBy(s => s.Group);
+            PrintLINQ(ITstudents);
 
 
-            /*
-            // "З'єднання"
-            Console.WriteLine("Декартовий добуток"); 
-            Console.WriteLine("Inner Join з використанням Where");
-            Console.WriteLine("Inner Join з використанням Join");
-            Console.WriteLine("Inner Join (зберігаємо об'єкт)");
-            //Обираємо всі елементи з d1 та якщо є пов'язані з d2 (outer join) 
-            //В temp поміщуємо всю групу, далі її елементи перебираємо окремо 
-            Console.WriteLine("Group Join");
-            Console.WriteLine("Cross Join и Group Join");
-            Console.WriteLine("Outer Join");
-            Console.WriteLine("Використання Join для складених ключів");
-            //Дії над множинами
-            Console.WriteLine("Distinct - для значень");
-            Console.WriteLine("Distinct - для об'єктів");
-            Console.WriteLine("Union - об'єднання з виключенням дублікатів");
-            Console.WriteLine("Union - об'єднання для объектів");
-            Console.WriteLine("Union - об'єднання для объектів з виключенням дублікатів 1");
-            Console.WriteLine("Union - об'єднання для объектів з виключенням дублікатів 2");
-            Console.WriteLine("Concat - об'єднання без виключення дублікатів");
-            Console.WriteLine("SequenceEqual - перевірка співпадіння та порядку слідування");
-            Console.WriteLine("Intersect - перетин множин");
-            Console.WriteLine("Intersect - перетин множин для об'єктів");
-            Console.WriteLine("Except - різниця множин");
-            Console.WriteLine("Except - різниця множин для об'єктів");
-            // "Функції агрегування"
-            Console.WriteLine("Count - кількість елементів");
-            Console.WriteLine("Count - кількість з умовою");
-            Console.WriteLine("Aggregate - агрегування значень");
-            Console.WriteLine("Групування");
-            Console.WriteLine("Групування з функціями агрегування");
-            Console.WriteLine("Групування - Any");
-            Console.WriteLine("Групування - All");
-            // "Перетворення даних"
-            Console.WriteLine("Результат перетворюється в масив");
-            Console.WriteLine("Результат перетворюється в Dictionary");
-            Console.WriteLine("Результат перетворюється в Lookup");
-            // "Отримання елемента"
-            Console.WriteLine("Перший елемент з вибірки");
-            Console.WriteLine("Перший елемент з вибірки або значення за замовчанням");
-            Console.WriteLine("Елемент в заданій позиції");
-            // "Генерація послідовностей
-            Console.WriteLine("Range");
-            Console.WriteLine("Repeat"
-            */
+            // 11. Date
+            Console.WriteLine("15) Students by age: ");
+            var stsByAge = from st in students
+                           orderby st.BirthDate
+                           select st.BirthDate.ToString("yyyy/MM/dd") + " " + st.LastName + " " + st.FirstName;
+            PrintLINQ(stsByAge);
+
+            Console.WriteLine("16) Students by age of #3 supervisor: ");
+            var stsByAgeOf3Sup = students3.OrderBy(s => s.BirthDate).Select(s => s.LastName + " " + s.FirstName);
+            PrintLINQ(stsByAgeOf3Sup);
+
+
+            // 12. All
+            Console.WriteLine("16) Check all students are older than 18:");
+            var boolAge18 = students.All(s => DateTime.Now.Year - s.BirthDate.Year > 18);
+            Console.WriteLine("All students are +18 age - {0}", boolAge18);
+            Console.WriteLine();
+
+
+            // 12. Concat & Distinct
+            Console.WriteLine("17) Concated Students from 1&3 Subjects: ");
+            var concatStsBySubs13 = (from s in sub1.Students
+                                     select s.LastName + " " + s.FirstName)
+                                     .Concat(from s in sub3.Students
+                                             select s.LastName + " " + s.FirstName).Distinct();
+            PrintLINQ(concatStsBySubs13);
+
+
+            // 13. Intersect
+            Console.WriteLine("18) Intersect of Subject 1 & 3 students: ");
+            var sub13StsIntersect = sub1.Students.Intersect(sub3.Students);
+            PrintLINQ(sub13StsIntersect);
+
+
+            // 14. Except
+            Console.WriteLine("19) Subject1 students except Subject2:");
+            var sub12Except = sub1.Students.Except(sub2.Students);
+            PrintLINQ(sub12Except);
+
+
+            // 13. Union
+            Console.WriteLine("18) Union of Supervisor 1 & 3's Students: ");
+            var unionSup13Sts = (from s in sup1.Students
+                                         select s)
+                                        .Union(from s in sup3.Students
+                                               select s)
+                                        .OrderByDescending(s => s.LastName);
+            PrintLINQ(unionSup13Sts);
+
+
+            // 14.Join
+            Console.WriteLine("20) Student_1 -> join Subjects: ");
+            var st1JoinSubs = from sc in st1.Scores
+                              join sub in allSubjects on sc.Key equals sub
+                              select sc.Key.Name + ": " + sc.Value;
+            PrintLINQ(st1JoinSubs);
+
+            Console.WriteLine("17) Supervisor_1 -> join Students Average Score: ");
+            var sup1JoinStScores = sup1.Students.Join(students, s1 => s1.Id, s2 => s2.Id,
+                                                     (s1, s2) => new { Name = s1.LastName + " " + s1.FirstName, Score = s1.AverageScore });
+            PrintLINQ(sup1JoinStScores);
+
+
+            // 12. Group Join
+            Console.WriteLine("18) AllSupervisors -> GroupJoin Students: ");
+            var supsJoinSts = allSupervisors.GroupJoin(students,
+                                                       sup => sup.ID,
+                                                       st => st.SupervisorID,
+                                                       (sups, sts) => new
+                                                       {
+                                                           Supervisor = sups.FirstName + " " + sups.Patronymic,
+                                                           Students = sts.Select(s => s.LastName)
+                                                       });
+            foreach (var sups in supsJoinSts)
+            {
+                Console.WriteLine($"{sups.Supervisor}:");
+                foreach (var student in sups.Students)
+                {
+                    Console.WriteLine($"\t{student}");
+                }
+            }
+            Console.WriteLine();
+
+
+            // 13. Group by
+            Console.WriteLine("19) Students grouped by LastName: ");
+            var stsGroupedLastName = from st in students
+                                     group st by st.LastName;
+            foreach (var sts in stsGroupedLastName)
+            {
+                Console.WriteLine(sts.Key + ":");
+                foreach (var student in sts)
+                {
+                    Console.WriteLine($"\t{student.FirstName}");
+                }
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("20) Students' level by Average score: ");
+            var stsLevel = students.GroupBy(st =>
+            {
+                if (st.AverageScore < 80) { return "3 Low score"; }
+                else if (st.AverageScore < 90) { return "2 Middle score"; }
+                else { return "1 High score"; }
+            }).OrderBy(st => st.Key);
+            foreach (var sts in stsLevel)
+            {
+                Console.WriteLine(sts.Key + ": ");
+                foreach (var st in sts)
+                {
+                    Console.WriteLine("\t{0} {1}: {2}", st.LastName, st.FirstName, st.AverageScore);
+                }
+            }
+            Console.WriteLine();
+
 
 
             Console.ReadLine();

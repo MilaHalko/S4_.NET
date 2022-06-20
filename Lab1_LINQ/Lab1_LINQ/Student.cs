@@ -15,6 +15,8 @@ namespace Lab1_LINQ
         public string Group { get; set; }
         public DateTime BirthDate { get; set; }
 
+        public int SupervisorID { get; set; }
+
 
         public Dictionary<Subject, int> Scores = new Dictionary<Subject, int>();
         public float AverageScore { 
@@ -31,7 +33,7 @@ namespace Lab1_LINQ
 
         public override string ToString()
         {
-            return String.Format(@"Student: {0} {1} {2} ID: {3} Group: {4}", FirstName, LastName, Patronymic, Id, Group); 
+            return String.Format(@"Student: {0} {1} {2} ID: {3} Group: {4}", LastName, FirstName, Patronymic, Id, Group); 
         }
     }
 }

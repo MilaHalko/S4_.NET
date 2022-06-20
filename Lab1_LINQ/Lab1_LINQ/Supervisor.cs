@@ -8,6 +8,7 @@ namespace Lab1_LINQ
 {
     internal class Supervisor
     {
+        public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Patronymic { get; set; }
@@ -20,7 +21,12 @@ namespace Lab1_LINQ
             return String.Format(@"
                 Supervisor: {0} {1} {2} 
                 Post: {3} 
-                    Students: {4}", FirstName, LastName, Patronymic, Post, students);
+                    Students: {4}", LastName, FirstName, Patronymic, Post, students);
+        }
+
+        internal object Join(List<Student> students, Func<object, object> p1, Func<Student, Student> p2, Func<object, object, object> p3)
+        {
+            throw new NotImplementedException();
         }
     }
 }

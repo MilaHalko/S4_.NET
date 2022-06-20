@@ -1,0 +1,3 @@
+C:\Users\Milka\Documents\Progs\C4_.NET\rgr\rgr\obj\Debug\rgr.csproj.AssemblyReference.cache
+C:\Users\Milka\Documents\Progs\C4_.NET\rgr\rgr\obj\Debug\rgr.csproj.SuggestedBindingRedirects.cache
+C:\Users\Milka\Documents\Progs\C4_.NET\rgr\rgr\obj\Debug\rgr.csproj.CoreCompileInputs.cache
