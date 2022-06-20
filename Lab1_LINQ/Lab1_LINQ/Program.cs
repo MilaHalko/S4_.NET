@@ -185,14 +185,14 @@ namespace Lab1_LINQ
 
 
             // 12. All
-            Console.WriteLine("16) Check all students are older than 18:");
+            Console.WriteLine("17) Check all students are older than 18:");
             var boolAge18 = students.All(s => DateTime.Now.Year - s.BirthDate.Year > 18);
             Console.WriteLine("All students are +18 age - {0}", boolAge18);
             Console.WriteLine();
 
 
-            // 12. Concat & Distinct
-            Console.WriteLine("17) Concated Students from 1&3 Subjects: ");
+            // 13. Concat & Distinct
+            Console.WriteLine("18) Concated Students from 1&3 Subjects: ");
             var concatStsBySubs13 = (from s in sub1.Students
                                      select s.LastName + " " + s.FirstName)
                                      .Concat(from s in sub3.Students
@@ -200,20 +200,20 @@ namespace Lab1_LINQ
             PrintLINQ(concatStsBySubs13);
 
 
-            // 13. Intersect
-            Console.WriteLine("18) Intersect of Subject 1 & 3 students: ");
+            // 14. Intersect
+            Console.WriteLine("19) Intersect of Subject 1 & 3 students: ");
             var sub13StsIntersect = sub1.Students.Intersect(sub3.Students);
             PrintLINQ(sub13StsIntersect);
 
 
-            // 14. Except
-            Console.WriteLine("19) Subject1 students except Subject2:");
+            // 15. Except
+            Console.WriteLine("20) Subject1 students except Subject2:");
             var sub12Except = sub1.Students.Except(sub2.Students);
             PrintLINQ(sub12Except);
 
 
-            // 13. Union
-            Console.WriteLine("18) Union of Supervisor 1 & 3's Students: ");
+            // 16. Union
+            Console.WriteLine("21) Union of Supervisor 1 & 3's Students: ");
             var unionSup13Sts = (from s in sup1.Students
                                          select s)
                                         .Union(from s in sup3.Students
@@ -222,21 +222,21 @@ namespace Lab1_LINQ
             PrintLINQ(unionSup13Sts);
 
 
-            // 14.Join
-            Console.WriteLine("20) Student_1 -> join Subjects: ");
+            // 17.Join
+            Console.WriteLine("22) Student_1 -> join Subjects: ");
             var st1JoinSubs = from sc in st1.Scores
                               join sub in allSubjects on sc.Key equals sub
                               select sc.Key.Name + ": " + sc.Value;
             PrintLINQ(st1JoinSubs);
 
-            Console.WriteLine("17) Supervisor_1 -> join Students Average Score: ");
+            Console.WriteLine("23) Supervisor_1 -> join Students Average Score: ");
             var sup1JoinStScores = sup1.Students.Join(students, s1 => s1.Id, s2 => s2.Id,
                                                      (s1, s2) => new { Name = s1.LastName + " " + s1.FirstName, Score = s1.AverageScore });
             PrintLINQ(sup1JoinStScores);
 
 
-            // 12. Group Join
-            Console.WriteLine("18) AllSupervisors -> GroupJoin Students: ");
+            // 18. Group Join
+            Console.WriteLine("24) AllSupervisors -> GroupJoin Students: ");
             var supsJoinSts = allSupervisors.GroupJoin(students,
                                                        sup => sup.ID,
                                                        st => st.SupervisorID,
@@ -256,8 +256,8 @@ namespace Lab1_LINQ
             Console.WriteLine();
 
 
-            // 13. Group by
-            Console.WriteLine("19) Students grouped by LastName: ");
+            // 19. Group by
+            Console.WriteLine("25) Students grouped by LastName: ");
             var stsGroupedLastName = from st in students
                                      group st by st.LastName;
             foreach (var sts in stsGroupedLastName)
@@ -270,7 +270,7 @@ namespace Lab1_LINQ
             }
             Console.WriteLine();
 
-            Console.WriteLine("20) Students' level by Average score: ");
+            Console.WriteLine("26) Students' level by Average score: ");
             var stsLevel = students.GroupBy(st =>
             {
                 if (st.AverageScore < 80) { return "3 Low score"; }
@@ -287,10 +287,7 @@ namespace Lab1_LINQ
             }
             Console.WriteLine();
 
-
-
             Console.ReadLine();
-
         }
 
         private static void PrintLINQ<T>(IEnumerable<T> list)
