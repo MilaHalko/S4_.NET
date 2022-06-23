@@ -11,7 +11,9 @@ In performing the computer workshop, the following steps must be performed:
 All variants you can find [here](https://github.com/MilaHalko/C4_.NET/blob/Lab1/AllVariants.pdf) :point_left:.
 
 ## :eyes: Variant #1:
-Develop a data structure to store information about diploma students and their supervisors. At least the following information should be stored about the students: Full name, group, date of birth, grade point average. About the supervisors: Name, title. One supervisor may have several graduate students.
+Develop a data structure to store information about diploma students and their supervisors. 
+At least the following information should be stored about the students: Full name, group, date of birth, grade point average. 
+About the supervisors: Name, title. One supervisor may have several graduate students.
 
 ## :muscle: Class Description: 
 During the development of the software, 3 classes were created: Student, Supervisor, Subject.
