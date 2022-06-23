@@ -23,6 +23,8 @@ During the development of the software, 3 classes were created: Student, Supervi
 
 As a result of creating the above-mentioned classes, mappings like: one to many (supervisor to student); many to many (student to subject) were reproduced. :whale:
 
-:memo: [Full report](https://github.com/MilaHalko/C4_.NET/blob/Lab1/Lab1.docx) 
+:memo: [Full report docx](https://github.com/MilaHalko/C4_.NET/blob/Lab1/Lab1.docx) 
+
+:book: [Full report PDF](https://github.com/MilaHalko/C4_.NET/blob/Lab1/Lab1.pdf)
 
 :computer: [Full code](https://github.com/MilaHalko/C4_.NET/tree/Lab1/Lab1_LINQ/Lab1_LINQ) 
