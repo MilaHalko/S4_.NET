@@ -23,4 +23,4 @@ About the supervisors: Name, title. One supervisor may have several graduate stu
 
 :book: [Full report PDF](https://github.com/MilaHalko/C4_.NET/blob/Lab2/Lab2.pdf)
 
-:computer: [Full code](https://github.com/MilaHalko/C4_.NET/tree/Lab2/Lab2_LINQ/Lab2_LINQ) 
+:computer: [Full code](https://github.com/MilaHalko/C4_.NET/tree/Lab2/Lab2_XML/Lab2_XML) 
