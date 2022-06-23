@@ -1,5 +1,6 @@
 # Computer Workshop #1
 LINQ to Objects
+
 **Objective:**
 To become familiar with data processing using the LINQ to Objects library.
 
@@ -21,4 +22,5 @@ During the development of the software, 3 classes were created: Student, Supervi
 - The Student class implements a student who has one supervisor and many subjects. In general, it has attributes: ID, full name, group, date of birth, supervisor, subjects with grades and a method to calculate the grade point average.
 - The Supervisor class implements a supervisor, which can have multiple grading students. The supervisor has attributes: ID, full name, position.
 - The Subject class implements a discipline. Each discipline has a list of students who study the same subject name as attributes.
+
 As a result of creating the above-mentioned classes, mappings like: one to many (supervisor to student); many to many (student to subject) were reproduced.
