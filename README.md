@@ -7,6 +7,7 @@ In performing the computer workshop, the following steps must be performed:
 2) Develop at least 15 different queries using different actions on sets: grouping, sorting, filtering, combining results of several queries into one (join, concat) and other. In addition, it is necessary to use two possible ways of implementing LINQ queries (classical and extension methods), and the queries should not be repeated.
 3) Create software that implements data processing using the LINQ to Objects library.
 4) The software needs to be developed through console application in C# language.
+
 All variants you can find [here](https://github.com/MilaHalko/C4_.NET/blob/Lab1/AllVariants.pdf) :point_left:.
 
 ## :eyes: Variant #1:
