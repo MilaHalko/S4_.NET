@@ -1,4 +1,4 @@
-# Computer Workshop #1: *LINQ to Objects*:
+# **Computer Workshop #1:** *LINQ to Objects*
 **Objective:** *To become familiar with data processing using the LINQ to Objects library.*
 
 ## :brain: Statement of the Task for Computer Workshop #1:
