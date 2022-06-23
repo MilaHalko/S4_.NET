@@ -22,3 +22,5 @@ During the development of the software, 3 classes were created: Student, Supervi
 - The Subject class implements a discipline. Each discipline has a list of students who study the same subject name as attributes.
 
 As a result of creating the above-mentioned classes, mappings like: one to many (supervisor to student); many to many (student to subject) were reproduced. :whale:
+[Full report](https://github.com/MilaHalko/C4_.NET/blob/Lab1/Lab1.docx) :memo:
+[Full code](https://github.com/MilaHalko/C4_.NET/tree/Lab1/Lab1_LINQ/Lab1_LINQ) :computer:
