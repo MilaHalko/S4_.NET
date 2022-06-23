@@ -1,8 +1,8 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Xml;
 
 namespace Lab2_XML
 {
@@ -78,7 +78,7 @@ namespace Lab2_XML
             using (XmlWriter writer = XmlWriter.Create("students.xml", settings))
             {
                 writer.WriteStartElement("students");
-                foreach (User st in students)
+                foreach (var st in students)
                 {
                     writer.WriteStartElement("student");
                     writer.WriteElementString("id", st.Id.ToString());
@@ -88,15 +88,15 @@ namespace Lab2_XML
                     writer.WriteElementString("group", st.Group);
                     writer.WriteElementString("DOB", st.BirthDate.ToString());
                     writer.WriteElementString("supId", st.SupervisorID.ToString());
-                    writer.WriteElementString("score", st.AverageScore().ToString());
+                    writer.WriteElementString("score", st.AverageScore.ToString());
                     writer.WriteEndElement();
 
                     writer.WriteStartElement("subjects");
                     foreach (var sub in st.Scores)
                     {
                         writer.WriteStartElement("subject");
-                        writer.WriteElementString("name", sub.key.Name);
-                        writer.WriteElementString("score", sub.value.ToString());
+                        writer.WriteElementString("name", sub.Key.Name);
+                        writer.WriteElementString("score", sub.Value.ToString());
                         writer.WriteEndElement();
                     }
                 }
@@ -106,9 +106,9 @@ namespace Lab2_XML
         }
     }
 }
-*/
 
 
+/*
 // example
 using System;
 using System.Collections.Generic;
@@ -232,3 +232,4 @@ namespace Lab2Example
         }
     }
 }
+*/
