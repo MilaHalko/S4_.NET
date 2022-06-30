@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using System.Xml.Linq;
+
+
 
 namespace Lab2_XML
 {
@@ -12,6 +15,7 @@ namespace Lab2_XML
         {
             Console.OutputEncoding = Encoding.UTF8;
 
+            #region Fulling data
             // Students
             Student st1 = new Student { Id = 1, FirstName = "Maksim", LastName = "Lavrov", Patronymic = "Leonidovych", Group = "IP-01", BirthDate = new DateTime(2000, 12,31)};
             Student st2 = new Student { Id = 2, FirstName = "Ekaterina", LastName = "Barinova", Patronymic = "Victorovna", Group = "IP-02", BirthDate = new DateTime(2001, 8, 14)};
@@ -70,11 +74,14 @@ namespace Lab2_XML
             st6.Scores[sub1] = 99;
             st6.Scores[sub3] = 98;
             st6.SupervisorID = 3;
+            #endregion
 
 
-            // XML File
+            #region XML file writer
+            // XML File Writer
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
+
             using (XmlWriter writer = XmlWriter.Create("university.xml", settings))
             {
                 writer.WriteStartElement("university");
@@ -101,7 +108,6 @@ namespace Lab2_XML
                     }
                     writer.WriteEndElement();
                     writer.WriteEndElement();
-
                 }
                 writer.WriteEndElement();
 
@@ -115,10 +121,10 @@ namespace Lab2_XML
                     writer.WriteElementString("patronymic", s.Patronymic);
                     writer.WriteElementString("post", s.Post);
 
-                    writer.WriteStartElement("students");
+                    writer.WriteStartElement("sup-students");
                     foreach (var st in s.Students)
                     {
-                        writer.WriteStartElement("student");
+                        writer.WriteStartElement("sup-student");
                         writer.WriteAttributeString("id", st.Id.ToString());
                         writer.WriteEndElement();
                     }
@@ -128,6 +134,79 @@ namespace Lab2_XML
                 writer.WriteEndElement();
                 writer.WriteEndElement();
             }
+            #endregion
+
+            #region Loading file
+            var doc = new XmlDocument();
+            doc.Load("university.xml");
+
+            Console.WriteLine("Students:");
+            foreach (XmlNode st in doc.GetElementsByTagName("student"))
+            {
+                var id = st.Attributes["id"].Value;
+                var fName = st["fName"].InnerText;
+                var lName = st["lName"].InnerText;
+                var patronymic = st["patronymic"].InnerText;
+                var group = st["group"].InnerText;
+                var DOB = st["DOB"].InnerText;
+                var supID = st["supId"].InnerText;
+                var score = st["score"].InnerText;
+
+                var subjects = new Dictionary<string, string>();
+                foreach (XmlNode sub in st["subjects"])
+                {
+                    subjects[sub.Attributes["name"].Value] = sub["score"].InnerText;
+                }
+
+                Console.WriteLine("{0} {1} {2} {3} {4}\n" +
+                                  "\tDate of Birth: {5}\n" +
+                                  "\tSupervisor: {6}\n" +
+                                  "\tScore: {7}\n" +
+                                  "\tSubjects:",
+                                  id, fName, lName, patronymic, group, DOB, supID, score);
+                foreach (var s in subjects)
+                {
+                    Console.WriteLine("\t\t{0}: {1}", s.Key, s.Value);
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("Supervisors:");
+            foreach (XmlNode sup in doc.GetElementsByTagName("supervisor"))
+            {
+                var id = sup.Attributes["id"].Value;
+                var fName = sup["fName"].InnerText;
+                var lName = sup["lName"].InnerText;
+                var patronymic = sup["patronymic"].InnerText;
+                var post = sup["post"].InnerText;
+                
+                var studentsID = new List<string>();
+                foreach (XmlNode st in sup["sup-students"])
+                {
+                    studentsID.Add(st.Attributes["id"].Value);
+                }
+
+                Console.WriteLine("{0} {1} {2} {3} - {4}", id, fName, lName, patronymic, post);
+                Console.Write("\tStudentsID: ");
+                for (int i = 0; i < studentsID.Count; i++)
+                {
+                    Console.Write(studentsID[i]);
+                    if (i != studentsID.Count - 1)
+                    {
+                        Console.Write(", ");
+                    }
+                }
+                Console.WriteLine("\n");
+            }
+            #endregion
+
+            #region LINQ to XML
+            XDocument d = XDocument.Load("university.xml");
+
+            #endregion
+
+            Console.ReadLine();
         }
     }
 }

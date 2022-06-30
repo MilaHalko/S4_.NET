@@ -107,30 +107,30 @@
       <lName>Barinov</lName>
       <patronymic>Petrovich</patronymic>
       <post>professor</post>
-      <students>
-        <student id="1" />
-        <student id="2" />
-        <student id="3" />
-      </students>
+      <sup-students>
+        <sup-student id="1" />
+        <sup-student id="2" />
+        <sup-student id="3" />
+      </sup-students>
     </supervisor>
     <supervisor id="2">
       <fName>Victoria</fName>
       <lName>Honcharova</lName>
       <patronymic>Yevhenevna</patronymic>
       <post>lecturer</post>
-      <students>
-        <student id="4" />
-      </students>
+      <sup-students>
+        <sup-student id="4" />
+      </sup-students>
     </supervisor>
     <supervisor id="3">
       <fName>Robert</fName>
       <lName>Dawny</lName>
       <patronymic>Second</patronymic>
       <post>philanthropist</post>
-      <students>
-        <student id="5" />
-        <student id="6" />
-      </students>
+      <sup-students>
+        <sup-student id="5" />
+        <sup-student id="6" />
+      </sup-students>
     </supervisor>
   </supervisors>
 </university>
