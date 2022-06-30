@@ -75,13 +75,14 @@ namespace Lab2_XML
             // XML File
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
-            using (XmlWriter writer = XmlWriter.Create("students.xml", settings))
+            using (XmlWriter writer = XmlWriter.Create("university.xml", settings))
             {
+                writer.WriteStartElement("university");
                 writer.WriteStartElement("students");
                 foreach (var st in students)
                 {
                     writer.WriteStartElement("student");
-                    writer.WriteElementString("id", st.Id.ToString());
+                    writer.WriteAttributeString("id", st.Id.ToString());
                     writer.WriteElementString("fName", st.FirstName);
                     writer.WriteElementString("lName", st.LastName);
                     writer.WriteElementString("patronymic", st.Patronymic);
@@ -89,24 +90,47 @@ namespace Lab2_XML
                     writer.WriteElementString("DOB", st.BirthDate.ToString());
                     writer.WriteElementString("supId", st.SupervisorID.ToString());
                     writer.WriteElementString("score", st.AverageScore.ToString());
-                    writer.WriteEndElement();
 
                     writer.WriteStartElement("subjects");
                     foreach (var sub in st.Scores)
                     {
                         writer.WriteStartElement("subject");
-                        writer.WriteElementString("name", sub.Key.Name);
+                        writer.WriteAttributeString("name", sub.Key.Name);
                         writer.WriteElementString("score", sub.Value.ToString());
                         writer.WriteEndElement();
                     }
+                    writer.WriteEndElement();
+                    writer.WriteEndElement();
+
                 }
                 writer.WriteEndElement();
-            }
 
+                writer.WriteStartElement("supervisors");
+                foreach (var s in allSupervisors)
+                {
+                    writer.WriteStartElement("supervisor");
+                    writer.WriteAttributeString("id", s.ID.ToString());
+                    writer.WriteElementString("fName", s.FirstName);
+                    writer.WriteElementString("lName", s.LastName);
+                    writer.WriteElementString("patronymic", s.Patronymic);
+                    writer.WriteElementString("post", s.Post);
+
+                    writer.WriteStartElement("students");
+                    foreach (var st in s.Students)
+                    {
+                        writer.WriteStartElement("student");
+                        writer.WriteAttributeString("id", st.Id.ToString());
+                        writer.WriteEndElement();
+                    }
+                    writer.WriteEndElement();
+                    writer.WriteEndElement();
+                }
+                writer.WriteEndElement();
+                writer.WriteEndElement();
+            }
         }
     }
 }
-
 
 /*
 // example
@@ -117,38 +141,6 @@ using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace Lab2Example
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-
-            Console.OutputEncoding = Encoding.UTF8;
-            
-            // Створюємо файл
-            IList<User> users = new List<User> 
-            {
-                new User ("Bill Gates", "Microsoft", 48),
-                new User ("Larry Page", "Google", 42)
-            };
-
-            XmlWriterSettings settings = new XmlWriterSettings();
-            settings.Indent = true;
-            using (XmlWriter writer = XmlWriter.Create("users.xml", settings))
-            {
-                writer.WriteStartElement("users");
-                foreach (User user in users)
-                {
-                    writer.WriteStartElement("user");
-                    writer.WriteElementString("name", user.Name);
-                    writer.WriteElementString("company", user.Company);
-                    writer.WriteElementString("age", user.Age.ToString());
-                    writer.WriteEndElement();
-                }
-                writer.WriteEndElement();
-            }
-            
 
             // Виводимо файл
             XmlDocument doc = new XmlDocument();

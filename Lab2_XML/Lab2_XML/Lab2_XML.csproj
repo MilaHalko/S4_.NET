@@ -45,6 +45,9 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="University\Student.cs" />
+    <Compile Include="University\Subject.cs" />
+    <Compile Include="University\Supervisor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

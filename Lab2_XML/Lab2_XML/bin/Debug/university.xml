@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<university>
+  <students>
+    <student id="1">
+      <fName>Maksim</fName>
+      <lName>Lavrov</lName>
+      <patronymic>Leonidovych</patronymic>
+      <group>IP-01</group>
+      <DOB>31.12.2000 00:00:00</DOB>
+      <supId>1</supId>
+      <score>84</score>
+      <subjects>
+        <subject name="Math">
+          <score>95</score>
+        </subject>
+        <subject name="Literature">
+          <score>73</score>
+        </subject>
+      </subjects>
+    </student>
+    <student id="2">
+      <fName>Ekaterina</fName>
+      <lName>Barinova</lName>
+      <patronymic>Victorovna</patronymic>
+      <group>IP-02</group>
+      <DOB>14.08.2001 00:00:00</DOB>
+      <supId>1</supId>
+      <score>85,5</score>
+      <subjects>
+        <subject name="Web">
+          <score>85</score>
+        </subject>
+        <subject name="Literature">
+          <score>86</score>
+        </subject>
+      </subjects>
+    </student>
+    <student id="3">
+      <fName>Anastasia</fName>
+      <lName>Kuzma</lName>
+      <patronymic>Stepanovna</patronymic>
+      <group>IP-03</group>
+      <DOB>23.04.1999 00:00:00</DOB>
+      <supId>1</supId>
+      <score>85,5</score>
+      <subjects>
+        <subject name="Math">
+          <score>95</score>
+        </subject>
+        <subject name="Literature">
+          <score>76</score>
+        </subject>
+      </subjects>
+    </student>
+    <student id="4">
+      <fName>Larisa</fName>
+      <lName>Diachenko</lName>
+      <patronymic>Volodymirovna</patronymic>
+      <group>IP-04</group>
+      <DOB>11.10.2000 00:00:00</DOB>
+      <supId>2</supId>
+      <score>76</score>
+      <subjects>
+        <subject name="Math">
+          <score>89</score>
+        </subject>
+        <subject name="Literature">
+          <score>63</score>
+        </subject>
+      </subjects>
+    </student>
+    <student id="5">
+      <fName>Elena</fName>
+      <lName>Kuzma</lName>
+      <patronymic>Vyloriivna</patronymic>
+      <group>IT-01</group>
+      <DOB>11.02.2001 00:00:00</DOB>
+      <supId>3</supId>
+      <score>87</score>
+      <subjects>
+        <subject name="Web">
+          <score>87</score>
+        </subject>
+      </subjects>
+    </student>
+    <student id="6">
+      <fName>Aleksandr</fName>
+      <lName>Marchenko</lName>
+      <patronymic>Aleksandrovych</patronymic>
+      <group>IT-02</group>
+      <DOB>15.03.2002 00:00:00</DOB>
+      <supId>3</supId>
+      <score>98,5</score>
+      <subjects>
+        <subject name="Math">
+          <score>99</score>
+        </subject>
+        <subject name="Literature">
+          <score>98</score>
+        </subject>
+      </subjects>
+    </student>
+  </students>
+  <supervisors>
+    <supervisor id="1">
+      <fName>Victor</fName>
+      <lName>Barinov</lName>
+      <patronymic>Petrovich</patronymic>
+      <post>professor</post>
+      <students>
+        <student id="1" />
+        <student id="2" />
+        <student id="3" />
+      </students>
+    </supervisor>
+    <supervisor id="2">
+      <fName>Victoria</fName>
+      <lName>Honcharova</lName>
+      <patronymic>Yevhenevna</patronymic>
+      <post>lecturer</post>
+      <students>
+        <student id="4" />
+      </students>
+    </supervisor>
+    <supervisor id="3">
+      <fName>Robert</fName>
+      <lName>Dawny</lName>
+      <patronymic>Second</patronymic>
+      <post>philanthropist</post>
+      <students>
+        <student id="5" />
+        <student id="6" />
+      </students>
+    </supervisor>
+  </supervisors>
+</university>
