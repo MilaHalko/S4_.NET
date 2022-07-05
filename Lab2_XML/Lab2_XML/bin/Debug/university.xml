@@ -9,6 +9,7 @@
       <DOB>31.12.2000 00:00:00</DOB>
       <supId>1</supId>
       <score>84</score>
+      <supervisorId>1</supervisorId>
       <subjects>
         <subject name="Math">
           <score>95</score>
@@ -26,6 +27,7 @@
       <DOB>14.08.2001 00:00:00</DOB>
       <supId>1</supId>
       <score>85,5</score>
+      <supervisorId>1</supervisorId>
       <subjects>
         <subject name="Web">
           <score>85</score>
@@ -43,6 +45,7 @@
       <DOB>23.04.1999 00:00:00</DOB>
       <supId>1</supId>
       <score>85,5</score>
+      <supervisorId>1</supervisorId>
       <subjects>
         <subject name="Math">
           <score>95</score>
@@ -60,6 +63,7 @@
       <DOB>11.10.2000 00:00:00</DOB>
       <supId>2</supId>
       <score>76</score>
+      <supervisorId>2</supervisorId>
       <subjects>
         <subject name="Math">
           <score>89</score>
@@ -77,6 +81,7 @@
       <DOB>11.02.2001 00:00:00</DOB>
       <supId>3</supId>
       <score>87</score>
+      <supervisorId>3</supervisorId>
       <subjects>
         <subject name="Web">
           <score>87</score>
@@ -91,6 +96,7 @@
       <DOB>15.03.2002 00:00:00</DOB>
       <supId>3</supId>
       <score>98,5</score>
+      <supervisorId>3</supervisorId>
       <subjects>
         <subject name="Math">
           <score>99</score>
@@ -126,11 +132,30 @@
       <fName>Robert</fName>
       <lName>Dawny</lName>
       <patronymic>Second</patronymic>
-      <post>philanthropist</post>
+      <post>professor</post>
       <sup-students>
         <sup-student id="5" />
         <sup-student id="6" />
       </sup-students>
     </supervisor>
   </supervisors>
+  <Subjects>
+    <sub-students>
+      <sub-student id="1" subject="Math" />
+      <sub-student id="3" subject="Math" />
+      <sub-student id="4" subject="Math" />
+      <sub-student id="6" subject="Math" />
+      <sub-students>
+        <sub-student id="2" subject="Web" />
+        <sub-student id="5" subject="Web" />
+        <sub-student id="6" subject="Web" />
+        <sub-students>
+          <sub-student id="1" subject="Literature" />
+          <sub-student id="2" subject="Literature" />
+          <sub-student id="3" subject="Literature" />
+          <sub-student id="4" subject="Literature" />
+        </sub-students>
+      </sub-students>
+    </sub-students>
+  </Subjects>
 </university>
