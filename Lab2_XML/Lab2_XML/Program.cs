@@ -98,7 +98,6 @@ namespace Lab2_XML
                     writer.WriteElementString("DOB", st.BirthDate.ToString());
                     writer.WriteElementString("supId", st.SupervisorID.ToString());
                     writer.WriteElementString("score", st.AverageScore.ToString());
-                    writer.WriteElementString("supervisorId", st.SupervisorID.ToString());
 
                     writer.WriteStartElement("subjects");
                     foreach (var sub in st.Scores)
@@ -217,6 +216,15 @@ namespace Lab2_XML
                 }
                 Console.WriteLine("\n");
             }
+
+            Console.WriteLine("Sub-students:");
+            foreach (XmlNode subSt in doc.GetElementsByTagName("sub-student"))
+            {
+                var id = subSt.Attributes["id"].InnerText;
+                var subName = subSt.Attributes["subject"].InnerText;
+                Console.WriteLine("{0} - studentID: {1}", subName, id);
+            }
+            Console.WriteLine();
             #endregion
 
             #region LINQ to XML
@@ -332,7 +340,7 @@ namespace Lab2_XML
             string mess11 = "Students joined supervisors";
             var supsSts = from st in d.Root.Descendants("student")
                           join sup in d.Root.Descendants("supervisor")
-                          on st.Element("supervisorId").Value equals sup.Attribute("id").Value
+                          on st.Element("supId").Value equals sup.Attribute("id").Value
                           orderby st.Element("fName").Value
                           select new
                           {
@@ -394,7 +402,7 @@ namespace Lab2_XML
 
 
             #endregion
-            Console.WriteLine(DateTime.Now);
+
             Console.ReadLine();
         }
         #region Output
@@ -427,61 +435,3 @@ namespace Lab2_XML
         #endregion
     }
 }
-
-/*            
-            // XDocument, XElement
-            //
-            XDocument xmlDoc = XDocument.Load("users.xml");
-            //
-            Console.WriteLine("Перелік коммпаній, в котрих працюють користувачі, відсортовані за зростанням");
-            var querySorted = xmlDoc.Descendants("user").Select(p => p.Element("company").Value).OrderBy(p => p.Trim());
-            foreach (var s in querySorted)
-            {
-                Console.WriteLine(s);
-            }
-            Console.WriteLine();
-            
-            //
-            Console.WriteLine("Фільтр за віком");
-            IEnumerable<XElement> queryAge = from b in xmlDoc.Root.Elements("user")
-                                             where (int)b.Element("age") == 42
-                                             select b;
-            Console.WriteLine(queryAge.FirstOrDefault().Element("name").Value);
-            Console.WriteLine();
- 
-            //
-            Console.WriteLine("Працюють в Google");
-            var items = from xe in xmlDoc.Element("users").Elements("user")
-                        where xe.Element("company").Value == "Google"
-                        select new User
-                        {
-                            Name = xe.Element("name").Value,
-                            Company = xe.Element("company").Value,
-                            Age = Int32.Parse(xe.Element("age").Value)
-                        };
-            foreach (var item in items)
-            {
-                Console.WriteLine("{0} - {1} - {2}", item.Name, item.Company, item.Age);
-            }
-            Console.WriteLine();
-            
-            Console.ReadKey();
-        }
-    }
-    class User
-    {
-        public string Name { get; set; }
-        public string Company { get; set; }
-        public int Age { get; set; }
-        public User()
-        { 
-        }
-        public User(string name, string company, int age)
-        {
-            Name = name;
-            Company = company;
-            Age = age;
-        }
-    }
-}
-*/
