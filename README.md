@@ -19,8 +19,19 @@ Develop a data structure to store information about diploma students and their s
 At least the following information should be stored about the students: Full name, group, date of birth, grade point average. 
 About the supervisors: Name, title. One supervisor may have several graduate students.
 
-:memo: [Full report docx](https://github.com/MilaHalko/C4_.NET/blob/Lab2/Lab2.docx) 
+## :floppy_disk: About the XML file:
+The corresponding classes resulted in the following XML file structure with the elements: students, supervisors, Subjects. According to this, 3 of them have all attributes from their initial classes as descendants. Where the attributes contained objects of other classes, only the id of the object was taken.
 
-:book: [Full report PDF](https://github.com/MilaHalko/C4_.NET/blob/Lab2/Lab2.pdf)
+## :books: About the software:
+The structure of the software is as follows:
+1) Creating objects and filling them with data;
+2) Creation of XML file structure (described in "About XML file");
+3) Interaction with the XML file to output the content;
+4) LINQ queries through an XML file (section "LINQ to XML").
+
+## :black_nib: LINQ to XML:
+The final and most part are LINQ queries to XML. During development, 15 queries were created using different set actions: order by, where, group by, take, skip while, join, union, etc. (Fig. 2).
+
+:memo: [Full report PDF](https://github.com/MilaHalko/C4_.NET/blob/Lab2/Lab2.pdf)/[docx](https://github.com/MilaHalko/C4_.NET/blob/Lab2/Lab2.docx)
 
 :computer: [Full code](https://github.com/MilaHalko/C4_.NET/tree/Lab2/Lab2_XML/Lab2_XML) 
