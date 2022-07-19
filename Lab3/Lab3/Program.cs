@@ -1,8 +1,6 @@
-﻿using Lab3.Docs;
-using Lab3.Files;
-using Lab3.Files.Builders;
-using System;
-using System.Collections.Generic;
+﻿using Lab3.Creators;
+using Lab3.DocsArgs;
+using Lab3.Docs;
 
 namespace Lab3
 {
@@ -11,30 +9,34 @@ namespace Lab3
     {
         static void Main(string[] args)
         {
-            Manager manager = new Manager();
-            List<Doc> docs = new();
+            List<Docs.Doc> docs = new();
 
-            var lBuilder = new LetterBuilder();
-            Letter l = manager.CreateDoc(lBuilder, "3eR-14", "13/08/2024", "Hello, Dear..", true, "Milosh Berkovich");
-            docs.Add(l);
-
-            var dBuilder = new DecreeBuilder();
-            Decree d = manager.CreateDoc(dBuilder, "gfh4", "31/08/2020", "Importance of deal..", "31/08/2022", "SD1");
-            docs.Add(d);
-
-            var mBuilder = new MemoBuilder();
-            Memo m = manager.CreateDoc(mBuilder, "123", "01/02/2022", "Memo To Stuff");
+            var mArgs = new MemoArgs("rst-3Re", "12/12/2022", "Memo to stuff.");
+            var mCreator = new MemoCreator(mArgs);
+            Doc m = mCreator.Create();
             docs.Add(m);
 
-            var oBuilder = new OrderBuilder();
-            Order o = manager.CreateDoc(oBuilder, "12345", "02/04/2019", "Stop coercion! #54", "06/07/2021", "SD32-01", "Michael Stubsy");
+            var lArgs = new LetterArgs("hd3_5", "18/04/2022", "Letter to officer, IMPOrTAnt!", false, "Mr.James");
+            var lCreator = new LetterCreator(lArgs);
+            Doc l = lCreator.Create();
+            docs.Add(l);
+
+            var dArgs = new DecreeArgs("4gT-13e", "09/09/2021", "Stop rewriting memo!", "12/12/2022", "SD-13");
+            var dCreator = new DecreeCreator(dArgs);
+            Doc d = dCreator.Create();
+            docs.Add(d);
+
+            var oArgs = new OrderArgs("d1R4", "01/01/2018", "Order13/4-1", "15/06/2020", "SD-01A", "Lia Charms");
+            var oCreator = new OrderCreator(oArgs);
+            Doc o = oCreator.Create();
             docs.Add(o);
 
-            var rrBuilder = new ResourceRequestBuilder();
-            ResourceRequest rr = manager.CreateDoc(rrBuilder, "76gR-9t", "30/12/2020", "Get Institution resouces", "Jeck Russly", "books, notes, pens, chairs");
+            var rrArgs = new ResourceRequestArgs("5oR_7", "18/10/2019", "Institute resources", "pens, tables, books, tablets", "Louis Baroette");
+            var rrCreator = new ResourceRequestCreator(rrArgs);
+            Doc rr = rrCreator.Create();
             docs.Add(rr);
 
-            foreach (Doc doc in docs)
+            foreach (Docs.Doc doc in docs)
             {
                 Console.WriteLine(doc);
             }
