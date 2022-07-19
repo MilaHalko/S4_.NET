@@ -18,7 +18,7 @@ namespace Lab3.Creators
     }
     class MemoCreator : DocCreator<Memo>
     {
-        public MemoCreator(DocArgs args) : base(args)
+        public MemoCreator(MemoArgs args) : base(args)
         {
         }
         public override Memo Create()

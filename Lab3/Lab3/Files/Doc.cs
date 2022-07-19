@@ -3,9 +3,9 @@ namespace Lab3.Docs
 {
     public abstract class Doc
     {
-        public string id { get; }
-        public string date { get; }
-        public string info { get; }
+        private string id;
+        private string date;
+        private string info;
         public Doc(string id, string date, string info)
         {
             this.id = id;
@@ -31,8 +31,8 @@ namespace Lab3.Docs
 
     class Letter : Doc
     {
-        public bool sender { get; }
-        public string correspondent { get; }
+        private bool sender;
+        private string correspondent;
         public Letter(string id, string date, string info, bool sender, string correspondent) 
             : base(id, date, info)
         {
@@ -50,8 +50,8 @@ namespace Lab3.Docs
 
     class Decree : Doc
     {
-        public string deadline { get; }
-        public string subdivision { get; }
+        private string deadline;
+        private string subdivision;
         public Decree(string id, string date, string info, string deadline, 
             string subdivision) : base(id, date, info)
         {
@@ -69,7 +69,7 @@ namespace Lab3.Docs
 
     class Order : Decree
     {
-        public string executor { get; }
+        private string executor
         public Order(string id, string date, string info, string deadline,
             string subdivision, string executor) 
             : base(id, date, info, deadline, subdivision)
@@ -88,8 +88,8 @@ namespace Lab3.Docs
 
     class ResourceRequest : Doc
     {
-        public string resources { get; }
-        public string assistant { get; }
+        private string resources;
+        private string assistant;
         public ResourceRequest(string id, string date, string info, 
             string resouces, string assistant) : base(id, date, info)
         {
