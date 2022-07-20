@@ -3,9 +3,9 @@ namespace Lab3.Docs
 {
     public abstract class Doc
     {
-        private string id;
-        private string date;
-        private string info;
+        protected string id;
+        protected string date;
+        protected string info;
         public Doc(string id, string date, string info)
         {
             this.id = id;
@@ -67,14 +67,18 @@ namespace Lab3.Docs
         }
     }
 
-    class Order : Decree
+    class Order : Doc
     {
-        private string executor
+        private string subdivision;
+        private string deadline;
+        private string executor;
         public Order(string id, string date, string info, string deadline,
             string subdivision, string executor) 
-            : base(id, date, info, deadline, subdivision)
+            : base(id, date, info)
         {
             this.executor = executor;
+            this.deadline = deadline;
+            this.subdivision= subdivision;
         }
         public override string ToString()
         {

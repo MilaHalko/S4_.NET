@@ -44,14 +44,18 @@
         }
     }
 
-    class OrderArgs : DecreeArgs
+    class OrderArgs : DocArgs
     {
+        public string deadline { get; set; }
+        public string subdivision { get; set; }
         public string executor { get; set; }
         public OrderArgs(string id, string date, string info, 
             string deadline, string subdivision, string executor)
-            : base(id, date, info, deadline, subdivision)
+            : base(id, date, info)
         {
             this.executor = executor;
+            this.subdivision = subdivision;
+            this.deadline = deadline;
         }
     }
 
