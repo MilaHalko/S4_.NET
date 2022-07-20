@@ -8,7 +8,7 @@ The following steps are required in completing the Computer Practice:
 3) Complete outline of the project's architecture (assigning of methods and classes), peculiarities of implementation of the selected pattern. For each pattern, specify the main classes and their purpose,
 4) Give a UML diagram of classes
 
-All variants you can find [here](https://github.com/MilaHalko/C4_.NET/blob/Lab3/AllVariants3.pdf) :point_left:.
+All variants you can find [here](https://github.com/MilaHalko/C4_.NET/blob/Lab3/Reports%26Variants/AllVariants3.pdf) :point_left:.
 
 ## :eyes: Variant #1:
 Develop a data structure to store information about diploma students and their supervisors. 
@@ -21,6 +21,6 @@ Consequently, the **factory method** will be the best way to implement it. This 
 The only problem is that the files have different attributes. In this paper, the abstract class *DocArgs* and its descendants (the role of a repository) were created to pass all the necessary values to create files. The object of the *DocArgs* class will be passed to the constructor of the *DocCreator* heir for further extraction of values. Depending on the passed *DocArgs* heir, a specific *DocCreator* heir will be created..
 
 :art: [Final diagramme PNG](https://github.com/MilaHalko/C4_.NET/blob/Lab3/Diagrams/Docs.png)/[drawio](https://github.com/MilaHalko/C4_.NET/blob/Lab3/Diagrams/Docs.drawio)
-:memo: [Full report PDF](https://github.com/MilaHalko/C4_.NET/blob/Lab3/Lab2.pdf)/[docx](https://github.com/MilaHalko/C4_.NET/blob/Lab3/Lab2.docx)
+:memo: [Full report PDF](https://github.com/MilaHalko/C4_.NET/blob/Lab3/Reports%26Variants/Lab3.pdf)/[docx](https://github.com/MilaHalko/C4_.NET/blob/Lab3/Reports%26Variants/Lab3.docx)
 
 :computer: [Full code](https://github.com/MilaHalko/C4_.NET/tree/Lab3/Lab3/Lab3) 
