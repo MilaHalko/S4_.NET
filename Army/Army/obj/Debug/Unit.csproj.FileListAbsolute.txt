@@ -1,0 +1,8 @@
+C:\Users\Milka\Documents\Progs\C4_.NET\Army\Army\bin\Debug\Army.exe.config
+C:\Users\Milka\Documents\Progs\C4_.NET\Army\Army\bin\Debug\Army.exe
+C:\Users\Milka\Documents\Progs\C4_.NET\Army\Army\bin\Debug\Army.pdb
+C:\Users\Milka\Documents\Progs\C4_.NET\Army\Army\obj\Debug\Unit.csproj.AssemblyReference.cache
+C:\Users\Milka\Documents\Progs\C4_.NET\Army\Army\obj\Debug\Unit.csproj.SuggestedBindingRedirects.cache
+C:\Users\Milka\Documents\Progs\C4_.NET\Army\Army\obj\Debug\Unit.csproj.CoreCompileInputs.cache
+C:\Users\Milka\Documents\Progs\C4_.NET\Army\Army\obj\Debug\Army.exe
+C:\Users\Milka\Documents\Progs\C4_.NET\Army\Army\obj\Debug\Army.pdb
