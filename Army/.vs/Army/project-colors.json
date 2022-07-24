@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "9781d273-ac6c-4509-9cdb-997262fd4838": {
+      "ProjectGuid": "9781d273-ac6c-4509-9cdb-997262fd4838",
+      "DisplayName": "Army",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
