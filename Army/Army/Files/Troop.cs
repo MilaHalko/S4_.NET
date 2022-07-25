@@ -8,7 +8,7 @@ namespace Army.Files
 {
     class Troop : Unit
     {
-        List<Unit> units = new List<Unit>();
+        protected List<Unit> units = new List<Unit>();
 
         public Troop(string name) : base(name)
         { }
