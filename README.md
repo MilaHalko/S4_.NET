@@ -1,4 +1,4 @@
-# **Computer Workshop #4:** Structural patterns **
+# **Computer Workshop #4:** Structural patterns
 **Objective:** *get acquainted with basic structural patterns, learn how to apply them in software design and development.*
 
 ## :brain: Statement of the task of computer workshop #4:
