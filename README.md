@@ -1,4 +1,4 @@
-# **Computer Workshop #4:** Structural patterns**
+# **Computer Workshop #4:** Structural patterns **
 **Objective:** *get acquainted with basic structural patterns, learn how to apply them in software design and development.*
 
 ## :brain: Statement of the task of computer workshop #4:
@@ -25,7 +25,7 @@ Also from the Unit we inherit the abstract Warrior class. This class implements 
 
 The last step is to add Warrior descendants, specific warriors. In them we define all other unrealized methods.
 
-:art: [Final diagramme JPG](https://github.com/MilaHalko/C4_.NET/blob/Lab4/Diagrams/Army_Class-Diagram.jpg)
+:art: [Final diagram](https://github.com/MilaHalko/C4_.NET/blob/Lab4/Diagrams/Army_Class-Diagram.jpg)
 
 :memo: [Full report PDF](https://github.com/MilaHalko/C4_.NET/blob/Lab4/Reports%26Variants/Lab4.pdf)/[docx](https://github.com/MilaHalko/C4_.NET/blob/Lab4/Reports%26Variants/Lab4.docx)
 
