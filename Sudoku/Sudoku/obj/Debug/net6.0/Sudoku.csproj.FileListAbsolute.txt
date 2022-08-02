@@ -1,5 +1,0 @@
-C:\Users\Milka\Documents\Progs\C4_.NET\Sudoku\Sudoku\obj\Debug\net6.0\Sudoku.csproj.AssemblyReference.cache
-C:\Users\Milka\Documents\Progs\C4_.NET\Sudoku\Sudoku\obj\Debug\net6.0\Sudoku.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Milka\Documents\Progs\C4_.NET\Sudoku\Sudoku\obj\Debug\net6.0\Sudoku.AssemblyInfoInputs.cache
-C:\Users\Milka\Documents\Progs\C4_.NET\Sudoku\Sudoku\obj\Debug\net6.0\Sudoku.AssemblyInfo.cs
-C:\Users\Milka\Documents\Progs\C4_.NET\Sudoku\Sudoku\obj\Debug\net6.0\Sudoku.csproj.CoreCompileInputs.cache

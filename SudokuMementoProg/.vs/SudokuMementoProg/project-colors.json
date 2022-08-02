@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "4f2de3cb-c561-4c3b-9625-a0517930c9ca": {
+      "ProjectGuid": "4f2de3cb-c561-4c3b-9625-a0517930c9ca",
+      "DisplayName": "SudokuMementoProg",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
