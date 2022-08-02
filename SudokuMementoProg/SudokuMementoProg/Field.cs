@@ -31,11 +31,31 @@
 					if (value == field[index, vertical])
 					{
 						correct = false;
+						break;
 					}
 					if (value == field[horizontal, index])
 					{
 						correct = false;
+						break;
 					}
+				}
+			}
+			if (correct)
+			{
+				int sect_i = (horizontal / 3) * 3; 
+				int sect_j = (vertical / 3) * 3;
+
+				for (int i = sect_i; i < sect_i + 3; i++)
+				{
+					for (int j = sect_j; j < sect_j + 3; j++)
+					{
+						if (value == field[i, j])
+						{
+							correct = false;
+							break;
+						}
+					}
+					if(!correct) { break; }
 				}
 			}
 			if (correct)
